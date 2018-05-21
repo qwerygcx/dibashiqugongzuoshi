@@ -1,0 +1,292 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>第八时区工作室-首页</title>
+<link rel="stylesheet" href="css/style.css" type="text/css"/>
+<link rel="stylesheet" href="dist/pageSwitch.min.css">
+</head>
+<script  type="text/javascript">
+//设为首页
+function SetHome(obj,url){
+    try{
+        obj.style.behavior='url(#default#homepage)';
+        obj.setHomePage(url);
+    }catch(e){
+        if(window.netscape){
+            try{
+                netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect");
+            }catch(e){
+                alert("抱歉，此操作被浏览器拒绝！\n\n请在浏览器地址栏输入“about:config”并回车然后将[signed.applets.codebase_principal_support]设置为'true'");
+            }
+        }else{
+            alert("抱歉，您所使用的浏览器无法完成此操作。\n\n您需要手动将【"+url+"】设置为首页。");
+        }
+    }
+}
+//收藏本站
+function AddFavorite(title, url) {
+    try {
+        window.external.addFavorite(url, title);
+    }
+    catch (e) {
+        try {
+            window.sidebar.addPanel(title, url, "");
+        }
+        catch (e) {
+            alert("抱歉，您所使用的浏览器无法完成此操作。\n\n加入收藏失败，请使用Ctrl+D进行添加");
+        }
+    }
+}
+//保存到桌面
+function toDesktop(sUrl,sName){
+try {
+    var WshShell = new ActiveXObject("WScript.Shell");
+    var oUrlLink =          WshShell.CreateShortcut(WshShell.SpecialFolders("Desktop")     + "\\" + sName + ".url");
+    oUrlLink.TargetPath = sUrl;
+    oUrlLink.Save();
+    }  
+catch(e)  {  
+          alert("当前IE安全级别不允许操作！");  
+}
+}    
+</script>
+<body>
+<div class="top">
+	<div class="topbg">
+    <div class="top-riqi">
+    	<a href="javascript:void(0);" onclick="SetHome(this,'http://www.xyz.com');"  style=" margin-left:620px;">设为首页</a>丨<a href="javascript:void(0);" onclick="AddFavorite('我的网站',location.href)">收藏本站</a>丨<a href="lxwm.html">联系我们</a>
+        <span>24小时免费热线：13503328340</span>
+    </div>
+    </div>
+    <div class="menv">
+    	<div class="logo"><a href="index.html"><img src="img/logo_2.png" title="第八时区工作室" alt="第八时区工作室"></a></div>
+        <ul class="nav">
+        	<li><a class="ative" href="index.html">网站首页</a></li>
+        	<li><a href="gywm.html">关于我们</a></li>
+        	<li><a href="ahzx.html"> 第八时区资讯</a></li>
+        	<li><a href="fwxm.html">服务项目</a></li>
+        	<li><a href="wzjs.html">网站建设</a></li>
+        	<li><a href="wzwh.html">网站维护</a></li>
+        	<li><a href="kjym.html">空间域名</a></li>
+        	<li><a href="alsx.html">案例赏析</a></li>
+        	<li style="background:none;"><a href="lxwm.html">联系我们</a></li>
+        </ul>
+    </div>
+</div>
+
+<div id="container">
+	<div class="sections">
+		<div class="section" id="section0"></div>
+		<div class="section" id="section1"></div>
+		<div class="section" id="section2"></div>
+		<div class="section" id="section3"></div>
+	</div>
+</div>
+<!-------------------------------------轮播图------------------------------------>
+<script src="js/jquery-1.11.0.min.js" type="text/javascript"></script>
+<script src="dist/pageSwitch.min.js"></script>
+<script>
+	$("#container").PageSwitch({
+		direction:'horizontal',
+		easing:'ease-in',
+		duration:1000,
+		autoPlay:true,
+		loop:'false'
+	});
+</script>
+<!-------------------------------------轮播图------------------------------------>
+<div class="fwxmbg">
+<div class="fwxm">
+	<h2><span>what we do</span>服务项目</h2>
+    <p>第八时区工作室，提供域名注册、虚拟主机、企业邮局、网站建设、网站优化、微信公众平台、网站维护等全套网络营销解决方案。<br>现正服务于上千家企业，我们的使命是专注品质网站建设，传递用户网站价值</p>
+    <div class="fwxm-content">
+    	<div class="fwxm1"><div class="tp"><img src="img/weihu.png"><span></span></div><a href="wzwh.html"><p>website maintenance</p><h4>网站维护</h4></a></div>
+    	<div class="fwxm1"><div class="tp"><img src="img/youhua.png"><span></span></div><a href="#"><p>website  optimization</p><h4>网站优化推广</h4></a></div>
+    	<div class="fwxm1"><div class="tp"><img src="img/jianshe.png"><span></span></div><a href="wzjs.html"><p>website construction</p><h4>网站建设</h4></a></div>
+    	<div class="fwxm1"><div class="tp"><img src="img/weixin.png"><span></span></div><a href="#"><p>Micro channel public platform</p><h4>微官网</h4></a></div>
+    </div>
+</div>
+</div>
+
+<div class="anlibg">
+	<div class="anli">
+    	<h2><span>Case</span>案例赏析</h2>
+        <p>案例展现实力，我们的服务宣言：真诚，让客户感动</p>
+        <div class="xxk">
+        <ul id="xxk">
+        	<li class="xxkhover"><span class="xxk1"></span>企业官网</li>
+        	<li><span class="xxk2"></span>商城网站</li>
+        	<li><span class="xxk3"></span>微官网</li>
+        </ul>
+        <div class="anli-right" id="anli">
+        	<ul class="anli-content" style="display:block;">
+            	<dl>
+                	<dt>高端设计与服务</dt>
+                    <dd>提升品牌形象</dd>
+                    <dd>提升产品或服务价值</dd>
+                    <dd>针对企业品牌形象量身定制</dd>
+                    <dd>专业客服一对一为您服务</dd>
+                </dl>
+                <img src="img/anliwz.png" style=" margin-top:40px; margin-left:75px;">
+                <img src="img/anlixian.png" style=" margin-top:43px; margin-left:35px;">
+                <p class="anli-tupian">
+                	<img src="img/anli.jpg" style=" margin-top:10px;">
+                </p>
+            </ul>
+        	<ul class="anli-content">
+            	<dl>
+                	<dt>高端设计与服务</dt>
+                    <dd>提升产品或服务价值</dd>
+                    <dd>针对企业品牌形象量身定制</dd>
+                    <dd>专业客服一对一为您服务</dd>
+                </dl>
+                <img src="img/anliwz.png" style=" margin-top:40px; margin-left:75px;">
+                <img src="img/anlixian.png" style=" margin-top:43px; margin-left:35px;">
+                <p class="anli-tupian">
+                	<img src="img/anli.jpg" style=" margin-top:10px;">
+                </p>
+            </ul>
+        	<ul class="anli-content">
+            	<dl>
+                	<dt>高端设计与服务</dt>
+                    <dd>针对企业品牌形象量身定制</dd>
+                    <dd>专业客服一对一为您服务</dd>
+                </dl>
+                <img src="img/anliwz.png" style=" margin-top:40px; margin-left:75px;">
+                <img src="img/anlixian.png" style=" margin-top:43px; margin-left:35px;">
+                <p class="anli-tupian">
+                	<img src="img/anli.jpg" style=" margin-top:10px;">
+                </p>
+            </ul>
+        </div>
+        </div>
+    </div>
+</div>
+
+<div class="news">
+	<h2><span>news </span>第八时区资讯</h2>
+    <p>案例展现实力，我们的服务宣言：真诚，让客户感动</p>
+    <div class="news-content">
+    	<div class="news1">
+        	<p class="news-bt"><a href="ahzx.html">行业动态</a></p>
+        	<p class="news-wz">适合对象：适合于有自己的企业，通过建立网站宣传公司产品或服务。在行业有一定的知名度和影响力的，可通过建立行业网站来在线销售产品
+网站特点：能够使自己的产品迅速销往全国各地，有效节约企业推广成本，提升企业形象，更好地宣传展示产品和服务。</p>
+        </div>
+    	<div class="news1" style=" border-right:0;">
+        	<p class="news-bt" style=" margin-left:110px;"><a href="ahzx.html">建站知识</a></p>
+        	<p class="news-wz" style=" margin-left:113px;">适合对象：适合于有自己的企业，通过建立网站宣传公司产品或服务。在行业有一定的知名度和影响力的，可通过建立行业网站来在线销售产品
+网站特点：能够使自己的产品迅速销往全国各地，有效节约企业推广成本，提升企业形象，更好地宣传展示产品和服务。</p>
+        </div>
+    	<div class="news1" style=" border-bottom:0;">
+        	<p class="news-bt"><a href="ahzx.html">优化知识</a></p>
+        	<p class="news-wz">适合对象：适合于有自己的企业，通过建立网站宣传公司产品或服务。在行业有一定的知名度和影响力的，可通过建立行业网站来在线销售产品
+网站特点：能够使自己的产品迅速销往全国各地，有效节约企业推广成本，提升企业形象，更好地宣传展示产品和服务。</p>
+        </div>
+    	<div class="news1" style=" border:0;">
+        	<p class="news-bt" style=" margin-left:110px;"><a href="ahzx.html">营销知识</a></p>
+        	<p class="news-wz" style=" margin-left:113px;">适合对象：适合于有自己的企业，通过建立网站宣传公司产品或服务。在行业有一定的知名度和影响力的，可通过建立行业网站来在线销售产品
+网站特点：能够使自己的产品迅速销往全国各地，有效节约企业推广成本，提升企业形象，更好地宣传展示产品和服务。</p>
+        </div>
+        <div class="news-tp"><img src="img/news1.png"><span></span></div>
+    </div>
+</div>
+
+<div class="gywm">
+	<h2><span>about us </span>关于我们</h2>
+    <p>我们不仅仅是一间工作室，更是一种专业、为客户负责的态度</p>
+    <div class="gywm-tp"><img src="img/gywm2.png"><img src="img/gywm1.png"><img src="img/gywm4.png"></div>
+    <div class="gywm-content">
+    	<ul id="gywm">
+        	<li class="gywm-hover" style=" margin-left:187px;">公司简介</li>
+        	<li>服务宗旨</li>
+        	<li>联系我们</li>
+        </ul>
+        <div class="gywm-xxk" id="gywm-content">
+        	<p style="display:block;">　　第八时区工作室，网聚天下商机!<br>　　艾涵工作室，成立于2017年，提供域名注册、虚拟主机、企业邮局、网站建设、网站优化、微信公众平台、网站维护等全套网络营销解决方案。<br>　　第八时区工作室，从创立至今已经为数万家企业提供了专业的网络营销产品，并通过专业的网络营销服务使这些企业获得了良好的营销效果。<br>　　第八时区工作室，集IT界的精英，由资深的网站设计师、软件开发工程师、营销顾问专家及专业客服实施顾问团队、技术服务团队等组成。本着 '服务至上'的宗旨，坚持'诚信为本'的经营理念，以'追求客户的感动'为目标来指导市场动作行为，并逐步推出高质量的网络增值服务，为众多企业实现网络营销梦想做出积极的努力。</p>
+        	<p>　　第八时区工作室，网聚天下商机!<br>　　第八时区工作室，成立于2017年，提供域名注册、虚拟主件开发工程师、营销顾问专家及专业客服实施顾问团队、技术服务团队等组成。本着 '服务至上'的宗旨，坚持'诚信为本'的经营理念，以'追求客户的感动'为目标来指导市场动作行为，并逐步推出高质量的网络增值服务，为众多企业实现网络营销梦想做出积极的努力。</p>
+        	<p>　　第八时区工作室，网聚天下商机!<br>　　第八时区工作室，成立于2017年，提供域名注册、虚拟主机、企业邮局、网站建设、网站优化、微信公众平台、网站维护等全套网络营销解决方案。<br>　　第八时区工作室，从创立至今已经为数万家企业提供了专业的网络营销产品，并通过专业的网络营销服务使这些企业获得了良好的营销效果。<br>　　第八时区工作室，集IT界服务至上'的宗旨，坚持'诚信为本'的经营理念，以'追求客户的感动'为目标来指导市场动作行为，并逐步推出高质量的网络增值服务，为众多企业实现网络营销梦想做出积极的努力。</p>
+        </div>
+    </div>
+</div>
+<script>
+window.onload = function ()
+{
+	var oLi = document.getElementById("gywm").getElementsByTagName("li");
+	var oUl = document.getElementById("gywm-content").getElementsByTagName("p");
+	
+	for(var i = 0; i < oLi.length; i++)
+	{
+		oLi[i].index = i;
+		oLi[i].onclick = function ()
+		{
+			for(var n = 0; n < oLi.length; n++) oLi[n].className="";
+			this.className = "gywm-hover";
+			for(var n = 0; n < oUl.length; n++) oUl[n].style.display = "none";
+			oUl[this.index].style.display = "block"
+		}	
+	}
+
+
+	var oLi1 = document.getElementById("xxk").getElementsByTagName("li");
+	var oUl1 = document.getElementById("anli").getElementsByTagName("ul");
+	
+	for(var a = 0; a < oLi.length; a++)
+	{
+		oLi1[a].index = a;
+		oLi1[a].onmouseover = function ()
+		{
+			for(var b = 0; b < oLi.length; b++) oLi1[b].className="";
+			this.className = "xxkhover";
+			for(var b = 0; b < oUl.length; b++) oUl1[b].style.display = "none";
+			oUl1[this.index].style.display = "block"
+		}	
+	}
+
+}
+</script>
+
+<div class="bottombg">
+	<div class="bottom-top">
+    	<dl style=" margin-left:13px;">
+        	<dt>关于我们</dt>
+            <dd><a href="#">公司简介</a></dd>
+            <dd><a href="#">服务宗旨</a></dd>
+            <dd><a href="#">服务流程</a></dd>
+            <dd><a href="#">联系我们</a></dd>
+        </dl>
+    	<dl>
+        	<dt>服务项目</dt>
+            <dd><a href="#">网站建设</a></dd>
+            <dd><a href="#">空间域名注册</a></dd>
+            <dd><a href="#">网站维护</a></dd>
+            <dd><a href="#">程序开发</a></dd>
+            <dd><a href="#">微信公众号</a> <a href="#">微官网</a></dd>
+        </dl>
+    	<dl>
+        	<dt>第八时区资讯</dt>
+            <dd><a href="#">行业动态</a></dd>
+            <dd><a href="#">建站知识</a></dd>
+            <dd><a href="#">优化知识</a></dd>
+            <dd><a href="#">营销知识</a></dd>
+        </dl>
+    	<dl>
+        	<dt>成功案例</dt>
+            <dd><a href="#">企业网站</a></dd>
+            <dd><a href="#">商城网站</a></dd>
+            <dd><a href="#">程序开发</a></dd>
+            <dd><a href="#">移动建站</a></dd>
+            <dd><a href="#">微信公众平台</a></dd>
+        </dl>
+        <div class="ewm">
+        	<img src="img/ewm.png">
+            <p>官方网站<span>官方微信</span></p>
+        </div>
+    </div>
+	<div class="bottom-bottom">
+    <a href="#">保定市第八时区工作室</a> 版权所有 冀ICP备14014227号<br>
+地址：保定市东风东路999号河北软件职业技术学院（东风东路999号路北） 公司客服：0312-6666666 技术支持：0312-8888888 E-mail:1186373395@qq.com
+    </div>
+</div>
+</body>
+</html>
